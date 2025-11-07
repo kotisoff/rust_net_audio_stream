@@ -6,7 +6,10 @@ pub fn list_audio_devices() -> Result<(), Box<dyn std::error::Error>> {
     println!("=== Input devices ===");
     let input_devices = host.input_devices()?;
     for device in input_devices {
-        println!(" {}", device.name()?);
+        match device.name() {
+            Ok(name) => println!(" {}", name),
+            Err(e) => println!(" Unknown device (Error: {})", e),
+        }
 
         // if let Ok(configs) = device.supported_input_configs() {
         //     for config in configs {
@@ -22,7 +25,10 @@ pub fn list_audio_devices() -> Result<(), Box<dyn std::error::Error>> {
     println!("\n=== Output devices ===");
     let output_devices = host.output_devices()?;
     for device in output_devices {
-        println!(" {}", device.name()?);
+        match device.name() {
+            Ok(name) => println!(" {}", name),
+            Err(..) => println!(" Unknown device"),
+        }
 
         // if let Ok(configs) = device.supported_output_configs() {
         //     for config in configs {
