@@ -24,17 +24,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     match matches.get_one::<String>("mode").map(|s| s.as_str()) {
         Some("server") => {
-            println!("Запуск сервера...");
+            println!("Starting server...");
             let config = AppConfig::load()?;
             server::run_server(config).await?;
         }
         Some("client") => {
-            println!("Запуск клиента...");
+            println!("Starting client...");
             let config = AppConfig::load()?;
             client::run_client(config).await?;
         }
         Some("devices") => {
-            println!("Список аудио устройств:");
+            println!("Audio devices list:");
             devices::list_audio_devices()?;
         }
         _ => unreachable!(),

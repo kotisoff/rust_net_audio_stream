@@ -3,36 +3,36 @@ use cpal::traits::{DeviceTrait, HostTrait};
 pub fn list_audio_devices() -> Result<(), Box<dyn std::error::Error>> {
     let host = cpal::default_host();
 
-    println!("=== Устройства ввода ===");
+    println!("=== Input devices ===");
     let input_devices = host.input_devices()?;
     for device in input_devices {
-        println!("Устройство: {}", device.name()?);
+        println!(" {}", device.name()?);
 
-        if let Ok(configs) = device.supported_input_configs() {
-            for config in configs {
-                println!(
-                    "  Поддерживает: {} каналов, {:?}",
-                    config.channels(),
-                    config.max_sample_rate()
-                );
-            }
-        }
+        // if let Ok(configs) = device.supported_input_configs() {
+        //     for config in configs {
+        //         println!(
+        //             "  Поддерживает: {} каналов, {:?}",
+        //             config.channels(),
+        //             config.max_sample_rate()
+        //         );
+        //     }
+        // }
     }
 
-    println!("\n=== Устройства вывода ===");
+    println!("\n=== Output devices ===");
     let output_devices = host.output_devices()?;
     for device in output_devices {
-        println!("Устройство: {}", device.name()?);
+        println!(" {}", device.name()?);
 
-        if let Ok(configs) = device.supported_output_configs() {
-            for config in configs {
-                println!(
-                    "  Поддерживает: {} каналов, {:?}",
-                    config.channels(),
-                    config.max_sample_rate()
-                );
-            }
-        }
+        // if let Ok(configs) = device.supported_output_configs() {
+        //     for config in configs {
+        //         println!(
+        //             "  Поддерживает: {} каналов, {:?}",
+        //             config.channels(),
+        //             config.max_sample_rate()
+        //         );
+        //     }
+        // }
     }
 
     Ok(())

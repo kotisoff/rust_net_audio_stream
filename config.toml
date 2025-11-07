@@ -1,11 +1,11 @@
 [client]
 server_address = "127.0.0.1:8080"
-input_device = "default"
+input_device = "default" # Get your input device by using ./target.exe --mode devices
 db_threshold = -55.0
 
 [server]
 bind_address = "0.0.0.0:8080"
-output_device = "default"
+output_device = "default" # Get your output device by using ./target.exe --mode devices
 
 [encryption]
-key = "000102030405060708090a0b0c0d0e0f000102030405060708090a0b0c0d0e0f"
+key = "000102030405060708090a0b0c0d0e0f000102030405060708090a0b0c0d0e0f" # AES-256
