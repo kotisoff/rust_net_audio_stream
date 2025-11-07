@@ -1,5 +1,5 @@
 [package]
-name = "rust_audio_stream"
+name = "rust_net_audio_stream"
 version = "0.1.0"
 edition = "2021"
 
