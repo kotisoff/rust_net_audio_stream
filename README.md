@@ -1,5 +1,5 @@
-# Net audio stream
-Vibe coded simple mic streaming app to send audio over network
+# Mic Audio Relay
+Vibe coded simple mic relay
 
 > [!WARNING]  
 > This project was vibe-coded! (and I dont approve vibe-coding)
